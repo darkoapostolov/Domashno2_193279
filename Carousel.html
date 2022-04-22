@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learning App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap-5.1.3-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    #body {
+        background-color: black;
+    }
+
+    .carousel-caption {
+        background: rgba(255, 255, 255, 0.3);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        margin-bottom: -20px;
+    }
+
+    #carousel1 {
+        margin-top: -30px;
+    }
+
+    #loginForm {
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 300px;
+    }
+
+    input {
+        margin-left: 10%;
+    }
+
+    #login3 {
+        margin-left: 6.6%;
+    }
+
+    #reg1 {
+        margin-left: 34%;
+    }
+
+    #RegForm {
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 400px;
+    }
+
+    #reg2 {
+        margin-left: 6.6%;
+    }
+
+    #log1 {
+        margin-left: 34%;
+    }
+
+    #log2 {
+        margin-left: 34%;
+    }
+
+    #log3 {
+        margin-left: 34%;
+    }
+
+    #cards {
+        display: flex;
+    }
+
+    #add {
+        cursor: pointer;
+    }
+
+    .card {
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+
+    .card:hover {
+        box-shadow: 5px 10px 8px #888888;
+    }
+    #window{
+        box-shadow: 5px 10px 8px #888888;
+        height: 700px;
+        width: 950px;
+        position: absolute;
+        right: 6%;
+        top: 18.5%;
+        border-radius: 10px;
+    }
+    #windowImg{
+        height: 250px;
+        width: 950px;
+        object-fit: cover;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+</style>
+<body id="body">
+<div id="carousel1" class="container pt-4">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="Images/java-script.jpg" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h1 class="fw-bold">JavaScript</h1>
+                    <p class="fw-bold">Learn the basics of JavaScript, along with a little refresher in HTMl and CSS</p>
+                    <a class="btn btn-light" onclick="Courses()">Start Learning</a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="Images/Java.jpg" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h1 class="fw-bold">Java</h1>
+                    <p class="fw-bold">Learn the basics of Java, one of the most widely used programming languages</p>
+                    <a class="btn btn-light" onclick="Courses()">Start Learning</a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="Images/C++.jpg" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h1 class="fw-bold">C++</h1>
+                    <p class="fw-bold">Learn the basics of C++, one of the most common starter languages<br> and keys to
+                        learning more advanced ones in the future</p>
+                    <a class="btn btn-light" onclick="Courses()">Start Learning</a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <button onclick="login()" id="login" class="btn btn-outline-light w-50">Login</button><button onclick="register()" id="register" class="btn btn-outline-light w-50">Register</button>
+</div>
+<div class="container" id="login1">
+    <div class="m-5 fw-bold">
+        <div id="loginForm" class="w-50 p-5">
+            <h1 class="border-bottom border-4">Login</h1>
+            <span class="m-5">Username:<br> <input id="user" type="text"></span><br>
+            <span class="m-5">Password:<br> <input id="pass" type="text"></span><br>
+            <div id="login3">
+                <button onclick="loginUser()" class="m-3 btn btn-success">Login</button>
+            </div>
+        </div>
+    </div>
+    <div id="reg1">
+        <button onclick="register()" class="btn btn-primary w-50">Register</button>
+    </div>
+    <div id="log3">
+        <button onclick="back()" class="btn btn-light btn-outline-dark w-50">Back</button>
+    </div>
+</div>
+
+<div class="container" id="register1">
+    <div class="m-5 fw-bold">
+        <div id="RegForm" class="w-50 p-5">
+            <h1 class="border-bottom border-4">Login</h1>
+            <span class="m-5">Username:<br> <input id="user1" type="text"></span><br>
+            <span class="m-5">E-mail:<br> <input id="email" type="text"></span><br>
+            <span class="m-5">Password:<br> <input id="pass1" type="text"></span><br>
+            <span class="m-5">Confirm Password:<br> <input id="cPass1" type="text"></span><br>
+            <div id="reg2">
+                <button onclick="RegUser()" class="m-3 btn btn-success">Register</button>
+            </div>
+        </div>
+    </div>
+    <div id="log1">
+        <button onclick="login()" class="btn btn-primary w-50">Login</button>
+    </div>
+    <div id="log2">
+        <button onclick="back()" class="btn btn-light btn-outline-dark w-50">Back</button>
+    </div>
+</div>
+
+<div>
+    <div id="header" class="pt-2 w-100 navbar-light bg-primary" style="width: 100%; overflow-x: visible">
+        <nav class="container navbar navbar-expand">
+            <div class="container">
+                <a style="cursor: pointer" class="nav-link link-light border-0" onclick="loginUser()">Home</a>
+            </div>
+            <ul class="navbar-nav me-auto" style="color: white">
+                <li style="cursor: pointer" class="nav-item"><a style="color: white" class="nav-link" onclick="Courses()">Courses</a></li>
+                <li style="cursor: pointer" class="nav-item"><a style="color: white" class="nav-link" onclick="About()">About</a></li>
+                <li style="cursor: pointer" class="nav-item"><a style="color: white" class="nav-link" onclick="Contact()">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="home" class="container" style="min-height: 633px">
+        <h1 class="border-bottom border-4">Your Courses</h1>
+        <div id="cards">
+            <a id="add" onclick="Courses()">
+                <div class="card m-4" style="width: 18rem">
+                    <img src="Images/Add.gif">
+                    <div class="card-body text-center">
+                        <h1 class="card-title">Add new Course</h1>
+                    </div>
+                </div>
+            </a>
+            <div class="card m-4" style="width: 18rem;">
+                <img class="card-img-top" src="Images/Java.jpg" alt="Card image">
+                <div class="card-body">
+                    <h5 class="card-title">Java Course</h5>
+                    <p class="card-text">Learn the basics of Java, one of the most widely used programming languages</p>
+                    <a href="#" class="btn btn-primary">Continue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="courses" class="container" style="min-height: 633px">
+        <h1 class="border-bottom border-4">Courses</h1>
+        <div id="cards2">
+            <div class="card m-4" style="width: 18rem;">
+                <img class="card-img-top" src="Images/Java.jpg" alt="Card image">
+                <div class="card-body">
+                    <h5 class="card-title">Java Course</h5>
+                    <p class="card-text">Learn the basics of Java, one of the most widely used programming languages</p>
+                    <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>
+        </div>
+        <div id="window">
+            <img id="windowImg" src="Images/Java.jpg">
+            <div style="margin: auto; width: 750px">
+            <h1 class="border-bottom border-2">Java</h1>
+            <p class="border-bottom border-2" style="width: 750px; min-height: 200px">Java is a programming language and computing platform first released by Sun Microsystems in 1995. It has evolved from humble beginnings to power a large share of today’s digital world, by providing the reliable platform upon which many services and applications are built. New, innovative products and digital services designed for the future continue to rely on Java, as well.
+
+                There are many applications and even some websites that will not function unless you have Java installed. Java.com, this website, is intended for consumers who require Java for their desktop applications – specifically applications targeting Java 8.</p>
+                <h5>Course Requirements</h5>
+                <p>Basic knowledge of data structures, some previous experience with object-oriented programming</p>
+                <p class="fw-bold">All course contents are free</p>
+                <button style="float: right; background-color: orange" onclick="loginUser()" class="btn btn-outline-light">Enroll</button>
+                <br>
+            </div>
+        </div>
+        <div class="card m-4" style="width: 18rem;">
+            <img class="card-img-top" src="Images/java-script.jpg" alt="Card image">
+            <div class="card-body">
+                <h5 class="card-title">JavaScript Course</h5>
+                <p class="card-text">Learn the basics of JavaScript, along with a little refresher in HTMl and CSS</p>
+                <a href="#" class="btn btn-primary">More</a>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <img class="card-img-top" src="Images/C++.jpg" alt="Card image">
+            <div class="card-body">
+                <h5 class="card-title">C++ Course</h5>
+                <p class="card-text">Learn the basics of C++, one of the most common starter languages<br> and keys to
+                    learning more advanced ones in the future</p>
+                <a href="#" class="btn btn-primary">More</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="about" style="min-height: 633px" class="container">
+        <h1 class="border-bottom border-4">About</h1>
+        <p style="max-width: 1000px">This Learning application was developed by FINKI students to help other FINKI students its main goal is to bee the one and all
+            answer to all of your programming needs. To help our fellow students further their mastery in the skills that they one day hope to profit off of.
+        </p>
+        <img style="max-width: 600px; max-height: 400px; object-fit: cover" src="Images/Wink.jpg">
+    </div>
+    <div id="contact" style="min-height: 633px" class="container">
+        <h1 class="border-bottom border-4">Contact</h1>
+        <p style="max-width: 1000px">For more information on our rates, future projects, or just want to get in touch with us, follow us on <p style="text-decoration: underline; color: #0c63e4; cursor: pointer">instagram</p> and <p style="text-decoration: underline; color: #0c63e4; cursor: pointer">Facebook</p> as well as the <p style="text-decoration: underline; color: #0c63e4; cursor: pointer">Learning app discord</p> for more information on everything learning app.
+    </div>
+    <footer id="footer">
+        <div class="pt-2 w-100 navbar-light bg-light border-top border-1" style="width: 100%; overflow-x: visible">
+            <nav class="container navbar navbar-expand">
+                <div class="container">
+                    <a style="cursor: pointer" class="nav-link link-dark border-0" onclick="loginUser()">Home</a>
+                </div>
+                <ul class="navbar-nav me-auto">
+                    <li style="cursor: pointer" class="nav-item"><a class="nav-link" onclick="Courses()">Courses</a></li>
+                    <li style="cursor: pointer" class="nav-item"><a class="nav-link" onclick="About()">About</a></li>
+                    <li style="cursor: pointer" class="nav-item"><a class="nav-link" onclick="Contact()">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</div>
+<script>
+    $("#login1").hide();
+    $("#register1").hide();
+    $("#home").hide();
+    $("#courses").hide();
+    $("#header").hide();
+    $("#footer").hide();
+    $("#about").hide()
+    $("#contact").hide();
+
+    function login() {
+        $("#carousel1").hide();
+        $("#register1").hide();
+        $("#login1").show();
+        $("#body").css("background", "white");
+        $("#header").hide();
+        $("#footer").hide();
+    }
+
+    function register() {
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").show();
+        $("#body").css("background", "white");
+        $("#header").hide();
+        $("#footer").hide();
+    }
+
+    function back() {
+        $("#carousel1").show();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#body").css("background", "black");
+        $("#header").hide();
+        $("#footer").hide();
+    }
+
+    function loginUser() {
+        $("#courses").hide();
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#home").show();
+        $("#header").show();
+        $("#footer").show();
+        $("#body").css("background", "white");
+        $("#about").hide();
+        $("#contact").hide();
+    }
+
+    function RegUser() {
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#home").show();
+        $("#header").show();
+        $("#footer").show();
+        $("#body").css("background", "white");
+        $("#about").hide();
+        $("#contact").hide();
+    }
+
+    function Courses() {
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#home").hide();
+        $("#courses").show();
+        $("#header").show();
+        $("#footer").show();
+        $("#about").hide();
+        $("#contact").hide();
+        $("#body").css("background", "white");
+    }
+
+    function About() {
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#home").hide();
+        $("#courses").hide();
+        $("#header").show();
+        $("#footer").show();
+        $("#about").show()
+        $("#contact").hide();
+        $("#body").css("background", "white");
+    }
+    function Contact() {
+        $("#carousel1").hide();
+        $("#login1").hide();
+        $("#register1").hide();
+        $("#home").hide();
+        $("#courses").hide();
+        $("#header").show();
+        $("#footer").show();
+        $("#about").hide();
+        $("#contact").show();
+        $("#body").css("background", "white");
+    }
+</script>
+</body>
+</html>
